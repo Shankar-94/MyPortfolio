@@ -1,7 +1,8 @@
 import { useState } from 'react';
-import emailjs from '@emailjs/browser';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import type { ContactFormData, ContactFormErrors } from '../types';
+
+const FORMSPREE_URL = 'https://formspree.io/f/moejngyl';
 
 const EMPTY_FORM: ContactFormData = { name: '', email: '', message: '' };
 const EMPTY_ERRORS: ContactFormErrors = {};
@@ -49,19 +50,16 @@ export const Contact = () => {
     setSendError(null);
 
     try {
-      await emailjs.send(
-        import.meta.env.VITE_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-        {
-          from_name: formData.name,
-          from_email: formData.email,
-          message: formData.message,
+      const res = await fetch(FORMSPREE_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
           name: formData.name,
           email: formData.email,
-          title: `Portfolio contact from ${formData.name}`,
-        },
-        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
-      );
+          message: formData.message,
+        }),
+      });
+      if (!res.ok) throw new Error('Failed');
       setIsSuccess(true);
     } catch {
       setSendError('Something went wrong. Please try again or email me directly.');
