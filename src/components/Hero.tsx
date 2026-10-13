@@ -14,7 +14,8 @@ export const Hero = () => {
       aria-labelledby="hero-title"
     >
       <div className="hero__content">
-        <p className="hero__eyebrow">Open to opportunities · Software Engineer</p>
+        <p className="hero__eyebrow">Frontend Engineer · React &amp; TypeScript · Open to opportunities</p>
+        <p className="hero__location">Europe · India</p>
         <h1 id="hero-title" className="hero__title">
           Shankar B Puthani
           <br />
@@ -35,6 +36,9 @@ export const Hero = () => {
           </a>
           <a href="#contact" className="btn btn--ghost">
             Contact me
+          </a>
+          <a href="/shankar-cv.pdf" download className="btn btn--ghost">
+            Download CV
           </a>
         </div>
         <div className="hero__meta">

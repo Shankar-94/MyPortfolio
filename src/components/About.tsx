@@ -18,6 +18,9 @@ export const About = () => {
       </header>
       <div className="section__body section__body--split">
         <div className="about__text">
+          <p className="about__tagline">
+            I love turning complex, manual engineering processes into clean, reliable digital tools.
+          </p>
           <p>
             I am Shankar B Puthani, an Engineering Services Analyst at Accenture, Bengaluru.
             Since joining in January 2024, I have built and delivered solutions across the

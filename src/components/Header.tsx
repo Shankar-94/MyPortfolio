@@ -75,6 +75,27 @@ export const Header = ({ theme, onThemeToggle }: HeaderProps) => {
               </ul>
             </nav>
 
+            <div className="site-header__social">
+              <a
+                href="https://www.linkedin.com/in/shankar-puthani"
+                target="_blank"
+                rel="noreferrer"
+                className="site-header__social-link"
+                aria-label="LinkedIn"
+              >
+                in
+              </a>
+              <a
+                href="https://github.com/Shankar-94"
+                target="_blank"
+                rel="noreferrer"
+                className="site-header__social-link"
+                aria-label="GitHub"
+              >
+                gh
+              </a>
+            </div>
+
             <button
               className="btn-theme"
               id="theme-toggle"
