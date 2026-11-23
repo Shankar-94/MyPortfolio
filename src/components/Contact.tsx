@@ -92,7 +92,9 @@ export const Contact = () => {
         <div>
           <p>
             Prefer email?{' '}
-            <strong>shankar.beruflich@outlook.com</strong>
+            <a href="mailto:shankar.beruflich@outlook.com">
+              <strong>shankar.beruflich@outlook.com</strong>
+            </a>
             <br />
             Or reach out on your favourite platform below.
           </p>

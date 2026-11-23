@@ -40,6 +40,10 @@ export const About = () => {
             src="/Media.jpeg"
             alt="Shankar B Puthani"
             className="about__photo"
+            width={240}
+            height={240}
+            loading="lazy"
+            decoding="async"
           />
         </div>
       </div>

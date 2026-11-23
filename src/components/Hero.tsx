@@ -1,6 +1,6 @@
 import { useTyping } from '../hooks/useTyping';
 import { useScrollReveal } from '../hooks/useScrollReveal';
-import { TYPED_PHRASES, HERO_STACK_ITEMS, CERTIFICATIONS } from '../data';
+import { TYPED_PHRASES, HERO_STACK_ITEMS, CERTIFICATIONS, AVAILABILITY } from '../data';
 import { BrandMark } from './BrandMark';
 
 export const Hero = () => {
@@ -15,12 +15,16 @@ export const Hero = () => {
       aria-labelledby="hero-title"
     >
       <div className="hero__content">
-        <p className="hero__eyebrow">Palantir Foundry Developer · Ontology · Workshop · Pipelines · Open to opportunities</p>
-        <p className="hero__location">Europe · India</p>
+        <p className="hero__eyebrow">Palantir Foundry Developer · Ontology · Workshop · Pipelines</p>
+        <p className="hero__location">
+          <span className="hero__status-dot" aria-hidden="true" />
+          Open to Palantir Foundry roles · {AVAILABILITY.join(' · ')}
+        </p>
         <h1 id="hero-title" className="hero__title">
           Shankar B Puthani
+          <span className="visually-hidden">, Palantir Foundry Developer</span>
           <br />
-          <span className="hero__typed" aria-live="polite">
+          <span className="hero__typed" aria-hidden="true">
             {typedText}
           </span>
           <span className="hero__cursor" aria-hidden="true">
@@ -38,7 +42,7 @@ export const Hero = () => {
           <a href="#contact" className="btn btn--ghost">
             Contact me
           </a>
-          <a href="/shankar-cv.pdf" download className="btn btn--ghost">
+          <a href="/ShankarCV.pdf" download="Shankar-B-Puthani-CV.pdf" className="btn btn--ghost">
             Download CV
           </a>
         </div>

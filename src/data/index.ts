@@ -8,6 +8,15 @@ import type {
   LineageStage,
 } from '../types';
 
+/** Career start (joined Accenture, Jan 2024). Experience is calculated from this. */
+const CAREER_START = new Date(2024, 0, 1);
+
+/** Whole years plus one decimal, rounded DOWN so the "+" is always true. */
+const yearsSince = (start: Date): number => {
+  const years = (Date.now() - start.getTime()) / (365.25 * 24 * 60 * 60 * 1000);
+  return Math.floor(years * 10) / 10;
+};
+
 /** Small Palantir emblem shown next to Palantir-related items (set via `logo`). */
 const PALANTIR_LOGO = '/palantir-emblem-mark.png';
 
@@ -51,6 +60,9 @@ export const NAV_LINKS = [
   { href: '#contact', label: 'Contact' },
 ];
 
+/** Locations shown in the hero "Open to Palantir Foundry roles" line. */
+export const AVAILABILITY = ['Bengaluru', 'Europe', 'Australia', 'USA'];
+
 export const TYPED_PHRASES = [
   'builds operational applications on Palantir Foundry.',
   'models real-world operations in the Foundry Ontology.',
@@ -81,7 +93,7 @@ export const CERTIFICATIONS: Certification[] = [
 ];
 
 export const STATS: StatItem[] = [
-  { target: 2.7, suffix: '+', label: 'Years Experience' },
+  { target: yearsSince(CAREER_START), suffix: '+', label: 'Years Experience' },
   { target: 6, suffix: '+', label: 'Projects Delivered' },
   { target: 10, suffix: '+', label: 'Technologies' },
 ];
