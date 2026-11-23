@@ -1,5 +1,6 @@
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import { PROJECTS } from '../data';
+import { BrandMark } from './BrandMark';
 
 export const Projects = () => {
   const ref = useScrollReveal<HTMLElement>();
@@ -15,12 +16,18 @@ export const Projects = () => {
         <h2 id="projects-title" className="section__title">
           Projects
         </h2>
-        <p className="section__kicker">Selected work that reflects my engineering focus.</p>
+        <p className="section__kicker">Selected work and what I&apos;m building next.</p>
       </header>
       <div className="projects-grid">
         {PROJECTS.map((project) => (
           <article key={project.title} className="card card--project">
-            <div className="card__meta">{project.meta}</div>
+            {project.logo && <BrandMark src={project.logo} className="card__corner-mark" />}
+            <div className="card__meta">
+              {project.status === 'in-progress' && (
+                <span className="card__status">In progress</span>
+              )}
+              {project.meta}
+            </div>
             <h3 className="card__title">{project.title}</h3>
             <p className="card__text">{project.description}</p>
             <ul className="pill-list pill-list--tight">

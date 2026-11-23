@@ -1,5 +1,6 @@
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import { SkillBar } from './SkillBar';
+import { BrandMark } from './BrandMark';
 import { SKILL_CATEGORIES } from '../data';
 
 export const Skills = () => {
@@ -21,7 +22,10 @@ export const Skills = () => {
       <div className="skills-grid">
         {SKILL_CATEGORIES.map((category) => (
           <article key={category.title} className="card card--skill">
-            <h3 className="card__title">{category.title}</h3>
+            <h3 className="card__title card__title--with-mark">
+              {category.logo && <BrandMark src={category.logo} />}
+              {category.title}
+            </h3>
             <div className="skill-bar-list">
               {category.skills.map((skill) => (
                 <SkillBar key={skill.label} skill={skill} />

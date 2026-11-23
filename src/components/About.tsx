@@ -19,19 +19,20 @@ export const About = () => {
       <div className="section__body section__body--split">
         <div className="about__text">
           <p className="about__tagline">
-            I love turning complex, manual engineering processes into clean, reliable digital tools.
+            I turn scattered engineering data into Palantir Foundry applications that people rely on to make decisions.
           </p>
           <p>
-            I am Shankar B Puthani, an Engineering Services Analyst at Accenture, Bengaluru.
-            Since joining in January 2024, I have built and delivered solutions across the
-            aviation domain — from inspection and defect management platforms to engineering
-            data validation tools and operational dashboards.
+            I am Shankar B Puthani, an Engineering Services Analyst at Accenture, Bengaluru,
+            and a certified Palantir Associate Application Developer. Since joining in January
+            2024, I have delivered data and application solutions across the aviation domain,
+            and Palantir Foundry is where I am focusing my career.
           </p>
           <p>
-            My work spans React, TypeScript, Python, C#, and Palantir Slate, with a focus
-            on automation, clean interfaces, and tools that genuinely reduce manual effort
-            for the people using them. I care about writing maintainable code, integrating
-            APIs reliably, and shipping things that work in production.
+            On Foundry I build the full path from raw data to decision: pipelines in Code
+            Repositories, Ontology object types and links that model real operations, and
+            Workshop applications and Slate dashboards on top. My background in Python,
+            TypeScript, React, and C# automation helps me build Foundry solutions that are
+            reliable underneath and easy to use on the surface.
           </p>
         </div>
         <div className="about__photo-wrap">

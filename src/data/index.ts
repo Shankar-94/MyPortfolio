@@ -1,24 +1,50 @@
-import type { SkillCategory, Project, ExperienceItem, StatItem } from '../types';
+import type {
+  SkillCategory,
+  Project,
+  ExperienceItem,
+  StatItem,
+  Certification,
+} from '../types';
+
+/** Small Palantir emblem shown next to Palantir-related items (set via `logo`). */
+const PALANTIR_LOGO = '/palantir-emblem-mark.png';
 
 export const NAV_LINKS = [
   { href: '#about', label: 'About' },
   { href: '#skills', label: 'Skills' },
   { href: '#projects', label: 'Projects' },
+  { href: '#certifications', label: 'Certifications' },
   { href: '#experience', label: 'Experience' },
   { href: '#contact', label: 'Contact' },
 ];
 
 export const TYPED_PHRASES = [
-  'builds scalable React & TypeScript applications.',
-  'automates workflows with Python & C#.',
-  'delivers operational insights on Palantir.',
-  'crafts responsive, accessible interfaces.',
+  'builds operational applications on Palantir Foundry.',
+  'models real-world operations in the Foundry Ontology.',
+  'builds data pipelines in Foundry Code Repositories.',
+  'turns engineering data into Workshop apps people use.',
 ];
 
 export const HERO_STACK_ITEMS = [
-  'React · TypeScript · Python · C# · .NET',
-  'Palantir Foundry & Slate · REST APIs · Excel Automation',
-  'OpenCV · EasyOCR · Computer Vision · Data Processing',
+  'Palantir Foundry · Ontology · Workshop · Slate',
+  'Pipelines · Code Repositories · Data Modeling',
+  'Python · TypeScript · React · C# · REST APIs',
+];
+
+/**
+ * Certifications — to add a new one:
+ *   1. Put the file in public/certificates/ (PDF, PNG or JPG).
+ *   2. Add an entry below. `file` and `image` paths start with /certificates/.
+ * The first entry is also shown as a badge in the hero section.
+ */
+export const CERTIFICATIONS: Certification[] = [
+  {
+    title: 'Palantir Associate Application Developer',
+    issuer: 'Palantir Technologies',
+    logo: PALANTIR_LOGO,
+    verifyUrl: 'https://verify.skilljar.com/c/cy4vd8286ngq',
+    skills: ['Foundry', 'Ontology', 'Workshop', 'Application Development'],
+  },
 ];
 
 export const STATS: StatItem[] = [
@@ -29,35 +55,85 @@ export const STATS: StatItem[] = [
 
 export const SKILL_CATEGORIES: SkillCategory[] = [
   {
-    title: 'Frontend & Apps',
+    title: 'Palantir Foundry',
+    logo: PALANTIR_LOGO,
     skills: [
-      { label: 'React', percentage: 90 },
-      { label: 'TypeScript', percentage: 85 },
-      { label: 'Component UI', percentage: 88 },
-      { label: 'State Management', percentage: 80 },
+      { label: 'Ontology Modeling', percentage: 80 },
+      { label: 'Workshop Applications', percentage: 80 },
+      { label: 'Pipelines & Code Repositories', percentage: 75 },
+      { label: 'Slate Dashboards', percentage: 82 },
     ],
   },
   {
-    title: 'System Design',
+    title: 'Data & Integration',
     skills: [
-      { label: 'Architecture', percentage: 78 },
-      { label: 'API Design', percentage: 75 },
+      { label: 'Python', percentage: 85 },
       { label: 'Data Modeling', percentage: 80 },
-      { label: 'Documentation', percentage: 85 },
+      { label: 'Data Validation & Processing', percentage: 85 },
+      { label: 'REST API Integration', percentage: 80 },
     ],
   },
   {
-    title: 'Platforms & Tools',
+    title: 'Application Development',
     skills: [
-      { label: 'Palantir', percentage: 82 },
+      { label: 'TypeScript', percentage: 85 },
+      { label: 'React', percentage: 88 },
+      { label: 'C# / .NET Automation', percentage: 78 },
       { label: 'Git / GitHub', percentage: 88 },
-      { label: 'CI/CD', percentage: 70 },
-      { label: 'Monitoring', percentage: 72 },
     ],
   },
 ];
 
 export const PROJECTS: Project[] = [
+  {
+    meta: 'Accenture · Palantir Foundry · Featured',
+    logo: PALANTIR_LOGO,
+    title: 'Palantir Foundry Operational Solutions',
+    description:
+      'Built solutions on Palantir Foundry to make aviation operations data usable for decision-making. Developed data pipelines in Code Repositories to ingest and transform source data, modeled it as Ontology object types and links, and delivered Workshop applications and Slate dashboards that put operational data in front of the teams that act on it.',
+    tags: ['Palantir Foundry', 'Ontology', 'Workshop', 'Code Repositories', 'Pipelines', 'Slate'],
+  },
+  // ── Personal Foundry projects (in progress) ─────────────────────────────
+  // Build guide: docs/palantir-project-plans.md
+  // When one is finished: remove `status`, update the description to past
+  // tense, and add sourceUrl / liveUrl (e.g. GitHub repo or demo video).
+  {
+    meta: 'Personal project · Palantir Foundry',
+    logo: PALANTIR_LOGO,
+    title: 'Aviation Defect Intelligence Ontology',
+    status: 'in-progress',
+    description:
+      'Building an end-to-end Foundry solution on public FAA Service Difficulty Reports: PySpark pipelines in Code Repositories clean and link defect, aircraft, and part data into an Ontology, and a Workshop triage app lets engineers filter recurring defects and assign, escalate, or close them through Ontology Actions.',
+    tags: ['Foundry', 'Ontology', 'Actions', 'Workshop', 'PySpark', 'Code Repositories'],
+  },
+  {
+    meta: 'Personal project · Palantir Foundry + OSDK',
+    logo: PALANTIR_LOGO,
+    title: 'Fleet Inspection Companion (OSDK App)',
+    status: 'in-progress',
+    description:
+      'Building a React and TypeScript web app on the Palantir Ontology SDK (OSDK) that reads aircraft and defect objects from Foundry and writes inspection findings back through Ontology Actions, with OAuth sign-in and a mobile-friendly inspection workflow.',
+    tags: ['OSDK', 'TypeScript', 'React', 'Ontology', 'OAuth'],
+  },
+  {
+    meta: 'Personal project · Palantir Foundry',
+    logo: PALANTIR_LOGO,
+    title: 'Engineering Data Validation Pipeline',
+    status: 'in-progress',
+    description:
+      'Building a rule-based validation pipeline in Foundry Code Repositories that checks engineering part and drawing-set data, routes failing records to an exceptions dataset with data expectations and unit tests, and surfaces them in a Workshop review inbox where users can resolve each exception.',
+    tags: ['Foundry', 'Python Transforms', 'Data Expectations', 'Unit Testing', 'Workshop'],
+  },
+  {
+    meta: 'Personal project · Palantir Foundry',
+    logo: PALANTIR_LOGO,
+    title: 'Flight Delay Operations Cockpit',
+    status: 'in-progress',
+    description:
+      'Building an operations view on US BTS on-time performance data: incremental pipelines aggregate millions of flight records, the Ontology models flights, airports, and carriers, and a Workshop cockpit shows delay hotspots, root-cause breakdowns, and drill-downs from airport to individual flight.',
+    tags: ['Foundry', 'Incremental Pipelines', 'Ontology', 'Workshop', 'Data Modeling'],
+  },
+  // ── Professional work ───────────────────────────────────────────────────
   {
     meta: 'Oct 2025 — Sept 2026 · Featured',
     title: 'Aircraft Operations Insights Dashboard',
@@ -73,14 +149,7 @@ export const PROJECTS: Project[] = [
     tags: ['C# .net', 'REST APIs', 'Excel Automation', 'Data Processing'],
   },
   {
-    meta: 'Accenture · Engineering · Featured',
-    title: 'ACPNG Automation',
-    description:
-      'Automation solution to simplify repetitive engineering validation and data-processing activities. Collects, processes, validates, and presents engineering information through a structured workflow, reducing manual effort for users. Contributed to automation logic, data handling, validation workflows, and structured result generation.',
-    tags: ['C# .net', 'Automation', 'Data Processing'],
-  },
-  {
-    meta: 'Accenture · Engineering · Featured',
+    meta: 'Accenture · Engineering',
     title: 'NOVO Screenshot Automation Tool',
     description:
       'Python desktop automation tool that uses OCR and computer vision to extract structured engineering data from screenshots and images. Built an automated pipeline covering image preprocessing, Part/DS/Assembly/CA code extraction, batch processing, data summarization, and formatted Excel report generation.',
@@ -88,17 +157,17 @@ export const PROJECTS: Project[] = [
   },
   {
     meta: 'Accenture · Engineering',
+    title: 'ACPNG Automation',
+    description:
+      'Automation solution to simplify repetitive engineering validation and data-processing activities. Collects, processes, validates, and presents engineering information through a structured workflow, reducing manual effort for users. Contributed to automation logic, data handling, validation workflows, and structured result generation.',
+    tags: ['C# .net', 'Automation', 'Data Processing'],
+  },
+  {
+    meta: 'Accenture · Engineering',
     title: 'CSS Switcher',
     description:
       'Component preview and export platform that lets users switch between Airbus and Accenture CSS themes and instantly compare how UI components render under each design system. Auto-generates a searchable component catalogue from project folders with support for code inspection, copying, PNG/SVG downloads, bulk ZIP export, and Draw.io library generation.',
     tags: ['Python', 'JavaScript', 'HTML', 'CSS', 'BeautifulSoup', 'JSZip', 'html2canvas'],
-  },
-  {
-    meta: 'Accenture · Engineering',
-    title: 'Palantir Slate Dashboards',
-    description:
-      'Developed interactive Slate dashboards on the Palantir platform to surface operational data and support decision-making. Focused on data modeling, widget configuration, and connecting data pipelines to user-facing views.',
-    tags: ['Palantir', 'Slate', 'Data Modeling', 'Dashboards'],
   },
 ];
 
@@ -108,6 +177,6 @@ export const EXPERIENCE: ExperienceItem[] = [
     location: 'Accenture / Bengaluru',
     title: 'Engineering Services Analyst',
     description:
-      'Built and delivered multiple engineering solutions across the aviation domain. Developed the Aircraft Operations Insights Dashboard — an inspection and defect management platform using React, TypeScript, and Python Flask with RBAC, image annotation, and REST API integration. Engineered C#-based automation tools (APSNG, ACPNG) for aircraft engineering data validation and Excel report generation. Created the NOVO Screenshot Automation Tool using Python, OpenCV, and EasyOCR for OCR-based data extraction from images. Built the CSS Switcher — a component preview platform supporting Airbus and Accenture design systems. Developed Palantir Slate dashboards to surface operational data and support decision-making.',
+      'Deliver data and application solutions for the aviation domain, with a growing focus on Palantir Foundry. On Foundry, built pipelines in Code Repositories, modeled operational data in the Ontology, and developed Workshop applications and Slate dashboards to support decision-making. Alongside this, built the Aircraft Operations Insights Dashboard (React, TypeScript, Python Flask) with RBAC, image annotation, and REST API integration; engineered C#-based automation tools (APSNG, ACPNG) for aircraft engineering data validation and Excel reporting; and created the NOVO Screenshot Automation Tool using Python, OpenCV, and EasyOCR for OCR-based data extraction.',
   },
 ];

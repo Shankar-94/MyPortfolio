@@ -1,6 +1,7 @@
 import { useTyping } from '../hooks/useTyping';
 import { useScrollReveal } from '../hooks/useScrollReveal';
-import { TYPED_PHRASES, HERO_STACK_ITEMS } from '../data';
+import { TYPED_PHRASES, HERO_STACK_ITEMS, CERTIFICATIONS } from '../data';
+import { BrandMark } from './BrandMark';
 
 export const Hero = () => {
   const typedText = useTyping(TYPED_PHRASES);
@@ -14,7 +15,7 @@ export const Hero = () => {
       aria-labelledby="hero-title"
     >
       <div className="hero__content">
-        <p className="hero__eyebrow">Frontend Engineer · React &amp; TypeScript · Open to opportunities</p>
+        <p className="hero__eyebrow">Palantir Foundry Developer · Ontology · Workshop · Pipelines · Open to opportunities</p>
         <p className="hero__location">Europe · India</p>
         <h1 id="hero-title" className="hero__title">
           Shankar B Puthani
@@ -27,8 +28,8 @@ export const Hero = () => {
           </span>
         </h1>
         <p className="hero__subtitle">
-          Engineering Services Analyst at Accenture, delivering aviation inspection platforms,
-          automation tools, and data dashboards using React, TypeScript, Python, C#, and Palantir.
+          Palantir-certified developer at Accenture, building Foundry pipelines, Ontology models,
+          and Workshop applications that turn aviation engineering data into operational decisions.
         </p>
         <div className="hero__actions">
           <a href="#projects" className="btn btn--primary">
@@ -42,8 +43,17 @@ export const Hero = () => {
           </a>
         </div>
         <div className="hero__meta">
+          {CERTIFICATIONS[0] && (
+            <a href="#certifications" className="hero__tag hero__tag--brand">
+              {CERTIFICATIONS[0].logo ? (
+                <BrandMark src={CERTIFICATIONS[0].logo} size="sm" />
+              ) : (
+                '✓ '
+              )}
+              {CERTIFICATIONS[0].title}
+            </a>
+          )}
           <div className="hero__tag">Engineering Services Analyst · Accenture</div>
-          <div className="hero__tag">React · TypeScript · Python · C# · Palantir</div>
         </div>
       </div>
 
