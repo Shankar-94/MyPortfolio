@@ -7,6 +7,8 @@ import { StatsStrip } from './components/StatsStrip';
 import { About } from './components/About';
 import { Skills } from './components/Skills';
 import { Projects } from './components/Projects';
+import { Lineage } from './components/Lineage';
+import { BuildLog } from './components/BuildLog';
 import { Certifications } from './components/Certifications';
 import { Experience } from './components/Experience';
 import { Contact } from './components/Contact';
@@ -31,7 +33,9 @@ function App() {
           <StatsStrip />
           <About />
           <Skills />
+          <Lineage />
           <Projects />
+          <BuildLog />
           <Certifications />
           <Experience />
           <Contact />

@@ -4,10 +4,43 @@ import type {
   ExperienceItem,
   StatItem,
   Certification,
+  Milestone,
+  LineageStage,
 } from '../types';
 
 /** Small Palantir emblem shown next to Palantir-related items (set via `logo`). */
 const PALANTIR_LOGO = '/palantir-emblem-mark.png';
+
+/**
+ * Build Log helper: the first `completed` milestones are marked done.
+ * To record progress, just raise the number (and update `updated`).
+ */
+const steps = (completed: number, labels: string[]): Milestone[] =>
+  labels.map((label, i) => ({ label, done: i < completed }));
+
+/** "How I build on Foundry" lineage diagram, left to right. */
+export const LINEAGE_STAGES: LineageStage[] = [
+  {
+    title: 'Sources',
+    caption: 'Raw data lands untouched',
+    items: ['CSV exports', 'APIs', 'Reference data'],
+  },
+  {
+    title: 'Pipelines',
+    caption: 'Code Repositories',
+    items: ['PySpark transforms', 'Unit tests', 'Data expectations'],
+  },
+  {
+    title: 'Ontology',
+    caption: 'The operational model',
+    items: ['Object types', 'Links', 'Actions'],
+  },
+  {
+    title: 'Applications',
+    caption: 'Where decisions happen',
+    items: ['Workshop', 'Slate', 'OSDK (React + TS)'],
+  },
+];
 
 export const NAV_LINKS = [
   { href: '#about', label: 'About' },
@@ -105,6 +138,16 @@ export const PROJECTS: Project[] = [
     description:
       'Building an end-to-end Foundry solution on public FAA Service Difficulty Reports: PySpark pipelines in Code Repositories clean and link defect, aircraft, and part data into an Ontology, and a Workshop triage app lets engineers filter recurring defects and assign, escalate, or close them through Ontology Actions.',
     tags: ['Foundry', 'Ontology', 'Actions', 'Workshop', 'PySpark', 'Code Repositories'],
+    updated: 'Nov 2026',
+    milestones: steps(1, [
+      'Plan & design',
+      'Data ingested',
+      'Pipelines + tests',
+      'Ontology objects & links',
+      'Actions',
+      'Workshop app',
+      'Demo & write-up',
+    ]),
   },
   {
     meta: 'Personal project · Palantir Foundry + OSDK',
@@ -114,6 +157,15 @@ export const PROJECTS: Project[] = [
     description:
       'Building a React and TypeScript web app on the Palantir Ontology SDK (OSDK) that reads aircraft and defect objects from Foundry and writes inspection findings back through Ontology Actions, with OAuth sign-in and a mobile-friendly inspection workflow.',
     tags: ['OSDK', 'TypeScript', 'React', 'Ontology', 'OAuth'],
+    updated: 'Nov 2026',
+    milestones: steps(1, [
+      'Plan & design',
+      'Inspection object & Action',
+      'OSDK app + OAuth',
+      'Fleet & aircraft views',
+      'Inspection writeback',
+      'Demo & write-up',
+    ]),
   },
   {
     meta: 'Personal project · Palantir Foundry',
@@ -123,6 +175,16 @@ export const PROJECTS: Project[] = [
     description:
       'Building a rule-based validation pipeline in Foundry Code Repositories that checks engineering part and drawing-set data, routes failing records to an exceptions dataset with data expectations and unit tests, and surfaces them in a Workshop review inbox where users can resolve each exception.',
     tags: ['Foundry', 'Python Transforms', 'Data Expectations', 'Unit Testing', 'Workshop'],
+    updated: 'Nov 2026',
+    milestones: steps(1, [
+      'Plan & design',
+      'Synthetic data',
+      'Rules + unit tests',
+      'Data expectations',
+      'Exceptions Ontology',
+      'Review inbox app',
+      'Demo & write-up',
+    ]),
   },
   {
     meta: 'Personal project · Palantir Foundry',
@@ -132,6 +194,15 @@ export const PROJECTS: Project[] = [
     description:
       'Building an operations view on US BTS on-time performance data: incremental pipelines aggregate millions of flight records, the Ontology models flights, airports, and carriers, and a Workshop cockpit shows delay hotspots, root-cause breakdowns, and drill-downs from airport to individual flight.',
     tags: ['Foundry', 'Incremental Pipelines', 'Ontology', 'Workshop', 'Data Modeling'],
+    updated: 'Nov 2026',
+    milestones: steps(1, [
+      'Plan & design',
+      'Incremental ingest',
+      'Aggregations',
+      'Ontology',
+      'Workshop cockpit',
+      'Demo & write-up',
+    ]),
   },
   // ── Professional work ───────────────────────────────────────────────────
   {

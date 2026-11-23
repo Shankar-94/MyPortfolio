@@ -1,6 +1,7 @@
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import { SkillBar } from './SkillBar';
 import { BrandMark } from './BrandMark';
+import { TechUsageChart } from './TechUsageChart';
 import { SKILL_CATEGORIES } from '../data';
 
 export const Skills = () => {
@@ -34,6 +35,7 @@ export const Skills = () => {
           </article>
         ))}
       </div>
+      <TechUsageChart />
     </section>
   );
 };

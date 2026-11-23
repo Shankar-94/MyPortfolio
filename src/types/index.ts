@@ -10,6 +10,17 @@ export interface SkillCategory {
   skills: SkillBar[];
 }
 
+export interface Milestone {
+  label: string;
+  done: boolean;
+}
+
+export interface LineageStage {
+  title: string;
+  caption: string;
+  items: string[];
+}
+
 export interface Project {
   meta: string;
   /** Optional logo image under /public, shown in the card corner. */
@@ -19,6 +30,10 @@ export interface Project {
   tags: string[];
   /** Shows an "In progress" badge. Remove when the project is finished. */
   status?: 'in-progress';
+  /** Milestones shown in the Build Log section. Flip `done` as you progress. */
+  milestones?: Milestone[];
+  /** Shown in the Build Log, e.g. 'Nov 2026'. */
+  updated?: string;
   liveUrl?: string;
   sourceUrl?: string;
 }
