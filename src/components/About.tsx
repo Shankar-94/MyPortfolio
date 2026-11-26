@@ -23,7 +23,8 @@ export const About = () => {
           </p>
           <p>
             I am Shankar B Puthani, an Engineering Services Analyst at Accenture, Bengaluru,
-            and a certified Palantir Associate Application Developer. Since joining in January
+            certified as both a Palantir Associate Application Developer and a Palantir
+            Associate AI Engineer. Since joining in January
             2024, I have delivered data and application solutions across the aviation domain,
             and Palantir Foundry is where I am focusing my career.
           </p>

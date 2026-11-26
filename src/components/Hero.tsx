@@ -47,16 +47,12 @@ export const Hero = () => {
           </a>
         </div>
         <div className="hero__meta">
-          {CERTIFICATIONS[0] && (
-            <a href="#certifications" className="hero__tag hero__tag--brand">
-              {CERTIFICATIONS[0].logo ? (
-                <BrandMark src={CERTIFICATIONS[0].logo} size="sm" />
-              ) : (
-                '✓ '
-              )}
-              {CERTIFICATIONS[0].title}
+          {CERTIFICATIONS.map((cert) => (
+            <a key={cert.title} href="#certifications" className="hero__tag hero__tag--brand">
+              {cert.logo ? <BrandMark src={cert.logo} size="sm" /> : '✓ '}
+              {cert.title}
             </a>
-          )}
+          ))}
           <div className="hero__tag">Engineering Services Analyst · Accenture</div>
         </div>
       </div>

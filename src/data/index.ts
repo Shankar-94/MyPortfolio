@@ -80,9 +80,16 @@ export const HERO_STACK_ITEMS = [
  * Certifications — to add a new one:
  *   1. Put the file in public/certificates/ (PDF, PNG or JPG).
  *   2. Add an entry below. `file` and `image` paths start with /certificates/.
- * The first entry is also shown as a badge in the hero section.
+ * Every entry is also shown as a badge in the hero section. Newest first.
  */
 export const CERTIFICATIONS: Certification[] = [
+  {
+    title: 'Palantir Associate AI Engineer',
+    issuer: 'Palantir Technologies',
+    logo: PALANTIR_LOGO,
+    verifyUrl: 'https://verify.skilljar.com/c/2rk5pwnnhg88',
+    skills: ['AIP', 'LLMs in Foundry', 'Ontology', 'AI Engineering'],
+  },
   {
     title: 'Palantir Associate Application Developer',
     issuer: 'Palantir Technologies',
